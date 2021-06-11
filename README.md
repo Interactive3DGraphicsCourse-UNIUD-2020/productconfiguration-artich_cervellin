@@ -1,80 +1,96 @@
-# ProductVisualization
+# **Product Configuration Project**
 
-![Image from Ford Configurator, developed in three.js](images/ford-configurator.jpg)
+di Eleonora Artich e Caterina Cervellin
 
-READ CAREFULLY this document BEFORE you start!
+ 
 
-## Prerequisites
+## **Descrizione**
 
-- read carefully all slides and notes up to lecture 20 before you start. Try the proposed exercises. 
+La nota azienda ACME richiede la realizzazione di un configuratore Web per la vendita di un prodotto attraverso un sito di e-commerce. Per lo svolgimento del progetto è stata scelta come prodotto una sedia, essendo un oggetto semplice e facile da fornire in diverse varianti.
 
-## Hints
+![prodotto_finale](images\prodotto_finale.jpeg)
 
-- Try to work out a basic project which satisfies all requirements well before the deadline and as soon as possible: you will then use the remaining time to refine, improve and polish.
-- If you are stuck for too much time on a problem, ask for help, preferably in the forum.
-- the process is as important as the result. Use this project to learn a workflow, and how to use tools effectively. Experiment, and try to come up with efficient, elegant, and well commented code.
-- commit often in your git repository and with meaningful comments.
-- do not choose too complex products with many materials. 3-4 materials are enough.
+## **Obiettivi**
+
+Creazione di un’applicazione Web (pagine HTML) che visualizzi il prodotto in 3D (utilizzando three.js) e che consenta all’utente un’ispezione interattiva del prodotto e la scelta di alcune sue varianti.
+
+Lista dei passaggi:
+
+* Creazione (o download) di un modello 3D (limite di 100.000 vertici);
+
+* Illuminazione e *environment map*;
+
+* Inserimento dei materiali (almeno 3 alternative);
+
+* Tone mapping;
+
+* BRDF;
+
+* Interfaccia utente.
+
+  
+
+## **Oggetto**
+
+Si è optato per il download di un modello 3D open source così da poter soddisfare tutti gli obiettivi richiesti dalla consegna. Come già anticipato è stato scaricato un modello 3D di una sedia e il sito scelto è *TurboSquid* (https://www.turbosquid.com/it/3d-models/3d-leather-chair-black-model-1551213). Dopo un colloquio sulla scelta delle varie tecniche da utilizzare e i vari step da eseguire è iniziata la fase di progettazione.
 
 
-## Goals
 
-The well-known ACME company has asked you to build a product **Web visualizer / configurator** for its new e-commerce site. Before giving you the job, ACME wants to evaluate how faithfully you can visualize and configure products.  ACME sells everything, so you can choose whatever kind of product you want for the demonstration.
+![modello](images\modello.png)
 
-Your goal is to build a Web application (a HTML page) that:
 
-- visualizes a product in 3D using three.js, using PBR equations and materials;
-- allows the user to inspect the product (e.g. by orbiting the camera around it), and change some material on it by choosing from a few alternatives.
 
-Try to make it look like a simple, but real portion of an e-commerce site, not a three.js example: choose carefully colors, fonts, images, and icons, also taking inspiration from real web sites. Before starting, search the web for existing 3D configurators. Note down what you like and don't like, and try to produce a result as professional as possible.
+## File usati
 
-## Steps (read CAREFULLY)
+Il progetto `productconfiguration-artich_cervellin ` è composto da:
 
-1. Prepare, and add to the repository, a journal.md file for logging your progress and choices.
+- `index.html  `: file *.html* della scena;
+- `journal.md`: documento di testo che riporta gli aggiornamenti del progetto;
+- `readme.md`: questo documento di testo riassuntivo del progetto;
+- `images`: cartella che contiene le immagini usate in journal.md e readme.md;
+- `lib`: cartella che contiene le librerie di *Three.js*;
+- `modules`: cartella che il modello 3D della sedia;
+- `textures`: cartella che contiene le textures e le cubemaps utilizzate.
 
-2. Choose a product for which: (i) you can easily build a 3D model, or (ii) you can download a 3D model which you have the right to use in non-commercial applications. The model should not be too complex (not more than 100k vertices) and in some format that three.js can read. [Three.js examples](https://threejs.org/examples/) provide a list of loaders for different formats: beware that not all of them work perfectly, and you might have to try with different formats. Preferably, use GLTF, but any other format is ok.
 
-3. Design the lighting for the product. Products in web sites and catalogues are photographed using strategically placed lights that enhance details and shape. For example, [searching google images for product photography lighting](http://www.google.com/images?q=product+photography+lighting) will show you a number of real-world lighting setups that are used for products. In your lighting setup, you can use whatever you want, from punctual lights, to environment map, or light maps, or any combination of them, but you *must include* an environment map.
 
-4. Design the PBR materials for the product. You can use PRB textures found anywhere, or produce them, e.g. with Substance Designer or B2M. If you use textures authored by someone else, just make sure you have the rights for using them in our context (non-commercial application). At least one of the materials must have 2-3 alternatives (e.g. different colors, or materials).
+## Processo
 
-5. Include tone mapping and, if needed, post-processing/color correction.
+Dopo una prima fase preparatoria di progettazione, svolta attraverso lo studio delle configurazioni di siti di e-commerce esistenti e delle loro interfacce utente, è stato impostato il codice di partenza impostando la scena, la camera, e il modello del file OBJ. Successivamente, è stata definita l'illuminazione più ottimale per la resa della scena, utilizzando una *point light*. La scena è stato fornita, inoltre, di un'*environment map*, in questo caso una *cubemap*, raffigurante un'ambiente di interni di una casa. 
 
-6. Build the application that renders the chosen 3D model, with the designed lighting setup and materials, and an user interface for selecting the material between the alternatives. You must use shaders written by you, e.g. by extending the shaders we saw in the classroom. Your report needs to describe the kind of BRDF / lights you have implemented.
+![map](images\map.png)
 
-7. If possible, try to take into account implicit requirements as well. For example, you cannot use textures with file sizes of dozens of megabytes for a Web site; and also, your page should render at least at 30 fps on average smartphones. You will get bonus points for a result that could be deployed to a Web site with few or no modifications.
 
-8. (optional) include any technique that was not explained in the classroom, e.g. some special shader or post-processing technique. This will award you extra points in the evaluation.
 
-9. Write a concise report by overwriting this file.
+Le texture dell'oggetto, in questo caso le *normal maps*, *roughness* e *color maps*, erano già presenti all'interno del modello scaricato, e sono state modificate attraverso Photoshop solamente per l'aggiunta delle varianti colore. L'interazione dell'utente consente quindi la scelta del colore della sedia tra le alternative nero, grigio e bianco, impostate tramite un radio button creato attraverso il sito *Bootstrap* (https://getbootstrap.com/) e il foglio di stile.
 
-## Starting code
 
-There is no specific starting code for this project. 
 
-## Documenting and report
+![texture](images\texture.png)
 
-For project documentation and reporting, we use the [markdown format](https://daringfireball.net/projects/markdown/syntax), which is also the format of this document. Markdown is a lightweight markup language with plain text formatting syntax which is easy and quick to write, very human-readable, and that can be converted to HTML.
 
-If you need more features than the ones that markdown provides (e.g. writing equations), you can use one of its extensions called [markdeep](https://casual-effects.com/markdeep/).
 
-You are required to document your project in two ways:
+La scelta degli shader è ricaduta su quelli visti a lezione, dal momento che la scena richiedeva degli shader capaci di applicare le texture in nostro possesso alla scena.
 
-- maintain a journal (in a file called journal.md) describing key design decisions, changes, bug symptoms and solutions, including screenshots.
-- create a report (by overwriting this file).
+Infine, è stato applicata un'operazione di *Tone Mapping* alla scena.
 
-The report should be as brief as possible while covering the following points:
 
-- overall description: what your project is about and the files it uses.
-- results, including images of the scenes created, taken in a way that clearly illustrates that they satisfy the specification.
-- brief explanation of the process that you used to make your scene. Include tools, assets, and planning steps.
 
-## Constraints
+## **Risultato finale**
 
-If you use textures / 3D models / substances / ..., make sure that you have the rights to include them. For example, search for images that come with a [CC Attribution, ShareAlike or NonCommercial licences](https://creativecommons.org/share-your-work/licensing-types-examples/).
+La configurazione finale rispetta quella ipotizzata inizialmente. L'utilizzo di un modello open source ha semplificato e velocizzato molto la parte iniziale del progetto, e la scelta di una sedia ha facilitato l'utilizzo di materiali e texture, nella possibilità di offrire delle varianti colore. Questo percoso ha reso possibile concentrare gli sforzi sulla comprensione delle varie fasi del progetto e sul rispetto di tutte le caratteristiche richieste. Lo svolgimento del progetto è stato reso possibile grazie anche agli esempi del corso *Interactive 3D graphics* (https://github.com/Interactive3DGraphicsCourse-UNIUD-2021/example-code) e alla guide online di *three.js* (https://threejs.org/), da cui sono stati presi vari spunti. Il risultato finale, nella sua semplicità ed essenzialità, mira a soddisfare tutti gli obiettivi richiesti, presentando quanto più possibile un risultato funzionante in tutte le sue parti e un layout dall'aspetto gradevole e quanto più convincente.
 
-In this project, you are allowed to re-use assets taken elsewhere, but **entirely copying** others' work, even with slight modifications, is forbidden and will have serious consequences beyond the deletion of your project. In any case, mention any source of inspiration in your journal and final report.
 
-## Credits
 
-The image above comes from a [Ford car configurator built in three.js](http://www.ford.com/cars/mustang/customizer/#!/customize).
+## Tools
+
+**TurboSquid**: download modello e texture open source;
+
+**Esercizi corso *Interactive 3D graphics***: spunti per il progetto, utilizzo vertex e fragment shader;
+
+**three.js**: spunti per il progetto;
+
+**Bootstrap**: definizione layout sito;
+
+**Photoshop**: rielaborazione texture ed immagini per i file di testo.
+
