@@ -1,3 +1,5 @@
+
+
 # **Product Configuration Project**
 
 di Eleonora Artich e Caterina Cervellin
@@ -8,7 +10,7 @@ di Eleonora Artich e Caterina Cervellin
 
 La nota azienda ACME richiede la realizzazione di un configuratore Web per la vendita di un prodotto attraverso un sito di e-commerce. Per lo svolgimento del progetto è stata scelta come prodotto una sedia, essendo un oggetto semplice e facile da fornire in diverse varianti.
 
-![prodotto_finale](images\prodotto_finale.jpeg)
+![prodotto_finale](https://user-images.githubusercontent.com/72081537/121743412-9b8c4880-cb01-11eb-90a4-e9221b9b3c79.jpeg)
 
 ## **Obiettivi**
 
@@ -36,7 +38,7 @@ Si è optato per il download di un modello 3D open source così da poter soddisf
 
 
 
-![modello](images\modello.png)
+![modello](https://user-images.githubusercontent.com/72081537/121743475-b3fc6300-cb01-11eb-977c-d9438967324a.png)
 
 
 
@@ -58,7 +60,7 @@ Il progetto `productconfiguration-artich_cervellin ` è composto da:
 
 Dopo una prima fase preparatoria di progettazione, svolta attraverso lo studio delle configurazioni di siti di e-commerce esistenti e delle loro interfacce utente, è stato impostato il codice di partenza impostando la scena, la camera, e il modello del file OBJ. Successivamente, è stata definita l'illuminazione più ottimale per la resa della scena, utilizzando una *point light*. La scena è stato fornita, inoltre, di un'*environment map*, in questo caso una *cubemap*, raffigurante un'ambiente di interni di una casa. 
 
-![map](images\map.png)
+![map](https://user-images.githubusercontent.com/72081537/121743586-db533000-cb01-11eb-8246-851ce5d7560a.png)
 
 
 
@@ -66,7 +68,7 @@ Le texture dell'oggetto, in questo caso le *normal maps*, *roughness* e *color m
 
 
 
-![texture](images\texture.png)
+![texture](https://user-images.githubusercontent.com/72081537/121743598-e0b07a80-cb01-11eb-9b7e-b1f3e5219cfc.png)
 
 
 
