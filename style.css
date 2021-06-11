@@ -1,0 +1,13 @@
+.content-wrapper {
+  max-width: 700px;
+  margin: 100px auto;
+}
+
+.material-selector {
+  margin-top: 20px;
+}
+
+#mainCanvas {
+  width: 700px;
+  height: 400px;
+}
