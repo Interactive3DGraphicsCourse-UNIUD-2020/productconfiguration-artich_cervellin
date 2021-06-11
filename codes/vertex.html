@@ -1,0 +1,21 @@
+<script type="text/x-glsl" id="vertex">
+`
+	    uniform float displacementScale;
+	    uniform sampler2D displacementMap;
+	    varying vec3 vNormal;
+	    varying vec3 vPosition;
+	    varying vec2 uVv;
+	    varying vec3 wPosition;
+	    uniform vec2 textureRepeat;
+	
+	    void main() {
+	        vec3 newPosition = position + normal * ((texture2D(displacementMap, uv * textureRepeat).xyz) * displacementScale);
+	        wPosition = (modelMatrix * vec4(position, 1.0)).xyz;
+	        vec4 vPos = modelViewMatrix * vec4(newPosition, 1.0);
+	        vPosition = vPos.xyz;
+	        vNormal = normalize(normalMatrix * normal);
+	        uVv = uv;
+	        gl_Position = projectionMatrix * vPos;
+	    }
+	    `
+</script>
